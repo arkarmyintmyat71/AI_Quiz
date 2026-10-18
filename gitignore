@@ -1,0 +1,12 @@
+# Secrets - never upload these
+.streamlit/secrets.toml
+.env
+
+# Local data
+quiz_history.json
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
