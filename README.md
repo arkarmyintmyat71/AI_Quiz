@@ -33,26 +33,3 @@ Or create `.streamlit/secrets.toml` with `GEMINI_API_KEY = "your-key"`.
 **Never upload your key to GitHub.**
 
 Free tier limits change over time and depend on the model and your country. Check the current limits in Google AI Studio. If you see a "rate limit" message, wait one minute and try again. The app asks for all questions in a single request to stay inside the free limits.
-
-## How it works
-
-| Part | Where in `app.py` |
-|------|-------------------|
-| Prompt and Gemini call (forced JSON output) | `build_prompt`, `generate_quiz` |
-| Checking and cleaning AI output | `clean_questions` |
-| Storing quizzes and scores in JSON | `load_history`, `save_attempt` |
-| Quiz and result screens | `quiz_view`, `result_view` |
-
-Finished quizzes are saved to `quiz_history.json` next to `app.py`. You can retake them from the sidebar.
-
-## Notes for your report
-
-- AI answers can be wrong, so the explanation shown after each question helps the student verify it.
-- The app validates the AI output (4 unique options, valid correct answer) and retries up to 3 times if the JSON is broken.
-- Options are shuffled locally so the correct answer is not always in the same position.
-
-## Ideas to extend
-
-- Timer for each quiz
-- Score chart over time
-- Export a quiz to PDF
